@@ -62,8 +62,7 @@ export default function App() {
 				<ul className="">
 					{results.map((result) => (
 						<li key={result.objectID}>
-							{" "}
-							>{" "}
+							{" > "}
 							<a href={result.url} className="underline">
 								{result.title}
 							</a>
