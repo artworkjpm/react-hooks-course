@@ -15,14 +15,12 @@ export default function App() {
 
 	const getResults = async () => {
 		setLoading(true);
-
 		try {
 			const response = await axios.get(`http://hn.algolia.com/api/v1/search?query=${query}`);
 			setResults(response.data.hits);
 		} catch (err) {
 			setError(err);
 		}
-
 		setLoading(false);
 	};
 
@@ -62,9 +60,8 @@ export default function App() {
 				<ul className="">
 					{results.map((result) => (
 						<li key={result.objectID}>
-							{" > "}
-							<a href={result.url} className="underline">
-								{result.title}
+							<a href={result.url} className="no-underline hover:underline">
+								<b>{" > "}</b> {result.title}
 							</a>
 						</li>
 					))}
