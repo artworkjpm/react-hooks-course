@@ -4,9 +4,14 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 
+const UserName = React.createContext();
+const value = "";
+
 ReactDOM.render(
 	<React.StrictMode>
-		<App />
+		<UserName.Provider value={value}>
+			<App />
+		</UserName.Provider>
 	</React.StrictMode>,
 	document.getElementById("root")
 );

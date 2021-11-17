@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter, Route, Routes, Navigate, Link } from "react-router-dom";
 import CrudApp from "./pages/CrudApp";
+import { HOC } from "./pages/HOC";
 import NewsPage from "./pages/NewsPage";
 
 export default function App() {
@@ -24,8 +25,9 @@ export default function App() {
 
 			<Routes>
 				<Route exact path="/items" element={<NewsPage />} />
+				<Route exact path="/hoc" element={<HOC />} />
 				<Route exact path="/crud" element={<CrudApp />} />
-				<Route exact path="/" element={<Navigate to="/items" />} />
+				<Route exact path="/" element={<Navigate to="/hoc" />} />
 			</Routes>
 		</BrowserRouter>
 	);
