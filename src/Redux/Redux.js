@@ -5,12 +5,14 @@ const initialState = { count: 0 };
 const store = createStore((state = initialState, action) => {
 	switch (action.type) {
 		case "INCREMENT":
+			const incrementBy = typeof action["incrementBy"] === "number" ? action["incrementBy"] : 1;
 			return {
-				count: state.count + 1,
+				count: state.count + incrementBy,
 			};
 		case "DECREMENT":
+			const decrement = typeof action["decrement"] === "number" ? action["decrement"] : 1;
 			return {
-				count: state.count - 1,
+				count: state.count - decrement,
 			};
 
 		case "RESET":
@@ -21,13 +23,16 @@ const store = createStore((state = initialState, action) => {
 			return state;
 	}
 });
-console.log(store.getState());
+
+store.subscribe(() => {
+	console.log(store.getState());
+});
+
 //Actions - is an object that is sent to the store
-store.dispatch({ type: "INCREMENT" });
+store.dispatch({ type: "INCREMENT", incrementBy: 5 });
 store.dispatch({ type: "INCREMENT" });
 store.dispatch({ type: "RESET" });
-store.dispatch({ type: "DECREMENT" });
-console.log(store.getState());
+store.dispatch({ type: "DECREMENT", decrement: 8 });
 
 export default function Redux() {
 	return <div className="text-center m-4">redux store</div>;
