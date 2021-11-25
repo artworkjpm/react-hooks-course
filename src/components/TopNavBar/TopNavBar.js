@@ -24,6 +24,9 @@ function TopNavBar() {
 				<Link className="text-lg no-underline text-grey-darkest hover:text-blue-dark ml-2" to="/redux-expensify">
 					Redux-Expensify
 				</Link>
+				<Link className="text-lg no-underline text-grey-darkest hover:text-blue-dark ml-2" to="/best-practices">
+					Best-Practices
+				</Link>
 			</div>
 		</nav>
 	);
