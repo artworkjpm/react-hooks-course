@@ -6,7 +6,7 @@ import LazyLoading from "./pages/BestPractices/LazyLoading";
 import Separation from "./pages/BestPractices/Separation";
 import CrudApp from "./pages/CrudApp";
 import { HOC } from "./pages/HOC";
-import NewsPage from "./pages/NewsPage";
+import NewsPage from "./pages/NewsPage/NewsPage";
 import ReduxExpensify from "./Redux/ReduxExpensify";
 const Redux = lazy(() => import("./Redux/Redux"));
 export default function App() {

@@ -1,38 +1,7 @@
-import React, { useState, useEffect, useRef } from "react";
-import axios from "axios";
+import NewsPageLogic from "./NewsPageLogic";
 
 export default function NewsPage() {
-	const [results, setResults] = useState([]);
-	const [query, setQuery] = useState("react hooks");
-	const [loading, setLoading] = useState(false);
-	const [error, setError] = useState(null);
-	const searchInputRef = useRef();
-
-	useEffect(() => {
-		getResults();
-		// eslint-disable-next-line
-	}, []);
-
-	const getResults = async () => {
-		setLoading(true);
-		try {
-			const response = await axios.get(`http://hn.algolia.com/api/v1/search?query=${query}`);
-			setResults(response.data.hits);
-		} catch (err) {
-			setError(err);
-		}
-		setLoading(false);
-	};
-
-	const handleSearch = (event) => {
-		event.preventDefault();
-		getResults();
-	};
-
-	const handleClearSearch = () => {
-		setQuery("");
-		searchInputRef.current.focus();
-	};
+	const { setQuery, handleSearch, query, searchInputRef, handleClearSearch, loading, results, error } = NewsPageLogic();
 
 	return (
 		<div className="container max-w-md mx-auto p-4 m-2 bg-purple-100 shadow-lg rounded">

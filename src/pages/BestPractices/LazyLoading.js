@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import Prism from "prismjs";
 import "../../code-css.css";
+
 const LazyLoading = () => {
 	useEffect(() => {
 		Prism.highlightAll();
@@ -19,7 +20,7 @@ const LazyLoading = () => {
                     import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
                     const MyComponent = lazy(() => import("./MyComponent"));
 
-                    
+
                     <BrowserRouter>
                     <Suspense fallback={<div>Loading...</div>}>
 					<Routes>

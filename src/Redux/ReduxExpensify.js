@@ -95,6 +95,7 @@ store.dispatch(removeExpense({ id: expense1.expenseDetail.id }));
 store.dispatch(editExpense(expense2.expenseDetail.id, { amount: 6 }));
 store.dispatch(setText("rentx"));
 
+// eslint-disable-next-line
 const demoState = {
 	expenses: [
 		{
