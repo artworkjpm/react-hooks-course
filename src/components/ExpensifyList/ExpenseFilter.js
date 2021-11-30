@@ -2,15 +2,15 @@ import React from "react";
 import { connect } from "react-redux";
 import { setText } from "../../Redux/actions/expenseFilters";
 
-function ExpenseInput(props) {
+function ExpenseFilter({ filters, dispatch }) {
 	return (
 		<div>
 			<input
 				type="text"
 				placeholder="filter by name..."
-				value={props.filters.text}
+				value={filters.text}
 				onChange={(e) => {
-					props.dispatch(setText(e.target.value));
+					dispatch(setText(e.target.value));
 				}}
 				className="border-2 border-indigo-600 rounded py-2 px-3 text-gray-700 leading-tight my-4"
 			/>
@@ -24,4 +24,4 @@ const mapStateToProps = (state) => {
 	};
 };
 
-export default connect(mapStateToProps)(ExpenseInput);
+export default connect(mapStateToProps)(ExpenseFilter);
