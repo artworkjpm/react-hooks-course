@@ -1,7 +1,15 @@
 //Expenses Reducer
+import { v4 as uuid } from "uuid";
+const dummyExpenses = [
+	{
+		id: uuid(),
+		description: "Car",
+		amount: 10000,
+		createdAt: 123,
+	},
+];
 
-const expenseDefaultState = [];
-export const expenseReducer = (state = expenseDefaultState, action) => {
+export const expenseReducer = (state = dummyExpenses, action) => {
 	switch (action.type) {
 		case "ADD_EXPENSE":
 			return [...state, action.expenseDetail];

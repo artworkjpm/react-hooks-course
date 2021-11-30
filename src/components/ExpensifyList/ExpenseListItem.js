@@ -1,12 +1,10 @@
 import React from "react";
 
-function ExpenseListItem({ id, description, amount }) {
+function ExpenseListItem({ description, amount }) {
 	return (
-		<div>
-			<li key={id}>
-				{description} | {amount} Euros
-			</li>
-		</div>
+		<li>
+			{description} | {amount} Euros
+		</li>
 	);
 }
 
