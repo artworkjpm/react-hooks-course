@@ -1,5 +1,6 @@
-import { createStore, combineReducers } from "redux";
+import { combineReducers, createStore } from "redux";
 import { v4 as uuid } from "uuid";
+import ExpensifyList from "../components/ExpensifyList/ExpensifyList";
 //ADD_EXPENSE
 
 const addExpense = ({ description = "", note = "", amount = 0, createdAt = 0 } = {}) => ({
@@ -68,7 +69,7 @@ const filtersInitialState = {
 const filtersReducer = (state = filtersInitialState, action) => {
 	switch (action.type) {
 		case "SET_TEXT":
-			return { ...state, ...action.text };
+			return { ...state, text: action.text };
 
 		default:
 			return state;
@@ -93,7 +94,7 @@ const expense2 = store.dispatch(addExpense({ description: "Tea", amount: 5 }));
 
 store.dispatch(removeExpense({ id: expense1.expenseDetail.id }));
 store.dispatch(editExpense(expense2.expenseDetail.id, { amount: 6 }));
-store.dispatch(setText("rentx"));
+store.dispatch(setText("rentx222"));
 
 // eslint-disable-next-line
 const demoState = {
@@ -114,14 +115,6 @@ const demoState = {
 	},
 };
 
-const user = {
-	name: "john",
-};
-
-console.log({
-	...user,
-});
-
 export default function ReduxExpensify() {
-	return <div className="text-center m-4">Redux Expensify</div>;
+	return <ExpensifyList />;
 }

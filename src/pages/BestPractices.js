@@ -1,20 +1,16 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import LinkedList from "../components/LinkedList.js/LinkedList";
 
 const BestPractices = () => {
+	const data = [
+		{ linkText: "Separate Logic from UI", linkURL: "separate-logic-from-ui-logic" },
+		{ linkText: "Lazy-Loading-Components", linkURL: "lazy-load-components" },
+		{ linkText: "useMemo hook", linkURL: "usememo-hook" },
+		{ linkText: "useEffect hook", linkURL: "use-effect-hook" },
+	];
 	return (
 		<div>
-			<ul className="px-0">
-				<Link to="separate-logic-from-ui-logic">
-					<li className="border list-none rounded-sm px-3 py-3">Separate Logic from UI</li>
-				</Link>
-				<Link to="lazy-load-components">
-					<li className="border list-none rounded-sm px-3 py-3">Lazy-Loading-Components</li>
-				</Link>
-				<li className="border list-none rounded-sm px-3 py-3">useMemo hook</li>
-				<li className="border list-none rounded-sm px-3 py-3">List Item 4</li>
-				<li className="border list-none rounded-sm px-3 py-3">List Item 5</li>
-			</ul>
+			<LinkedList name="Expensify Redux" data={data} />;
 		</div>
 	);
 };
