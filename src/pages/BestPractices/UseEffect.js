@@ -6,11 +6,13 @@ function UseEffectPage(props) {
 	const [prev, setPrev] = useState();
 
 	useEffect(() => {
-		//setName("new name");
 		console.log("USE EFFECT!!!");
-	}, []);
+		setTimeout(() => {
+			setName("Use effect name");
+		}, 1000);
+	}, [name]);
 
-	console.log("WORKING");
+	console.log("RENDERED");
 
 	return (
 		<div className="justify-center m-4">
@@ -20,11 +22,12 @@ function UseEffectPage(props) {
 			<button
 				onClick={() =>
 					setCount((prevState) => {
+						setName("New name");
 						setPrev(prevState);
 						return prevState + 1;
 					})
 				}
-				className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+				className="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
 			>
 				Button
 			</button>

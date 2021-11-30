@@ -85,9 +85,9 @@ const store = createStore(
 	})
 );
 
-store.subscribe(() => {
+/* store.subscribe(() => {
 	console.log(store.getState());
-});
+}); */
 
 const expense1 = store.dispatch(addExpense({ description: "Rent", amount: 100 }));
 const expense2 = store.dispatch(addExpense({ description: "Tea", amount: 5 }));

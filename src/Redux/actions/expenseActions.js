@@ -24,8 +24,3 @@ export const editExpense = (id, updates) => ({
 	id,
 	updates,
 });
-//SET_TEXT_FILTER
-export const setText = (text) => ({
-	type: "SET_TEXT",
-	text,
-});

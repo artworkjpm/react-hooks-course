@@ -9,16 +9,11 @@ import UseEffectPage from "./pages/BestPractices/UseEffect";
 import CrudApp from "./pages/CrudApp";
 import { HOC } from "./pages/HOC";
 import NewsPage from "./pages/NewsPage/NewsPage";
-import { addExpense, setText } from "./Redux/actions/expenseActions";
 import { expenseStore } from "./Redux/store/expenseStore";
 
 const ReduxExpensify = lazy(() => import("./Redux/ReduxExpensify"));
 const Redux = lazy(() => import("./Redux/Redux"));
 const storeExpense = expenseStore();
-storeExpense.dispatch(addExpense({ description: "Rent", amount: 100 }));
-storeExpense.dispatch(addExpense({ description: "Moto", amount: 5000 }));
-storeExpense.dispatch(setText("app text"));
-/* console.log(storeExpense.getState()); */
 
 export default function App() {
 	return (

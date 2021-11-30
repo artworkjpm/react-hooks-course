@@ -1,17 +1,11 @@
 import React from "react";
 
-function ExpenseListItem(props) {
+function ExpenseListItem({ id, description, amount }) {
 	return (
 		<div>
-			<ul>
-				{props.items.map((item) => {
-					return (
-						<li key={item.id}>
-							{item.description} | {item.amount} Euros
-						</li>
-					);
-				})}
-			</ul>
+			<li key={id}>
+				{description} | {amount} Euros
+			</li>
 		</div>
 	);
 }
