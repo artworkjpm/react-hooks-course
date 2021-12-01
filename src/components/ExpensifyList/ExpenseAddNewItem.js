@@ -1,12 +1,14 @@
 import React, { useState } from "react";
+import { addExpense } from "../../Redux/actions/expenseActions";
 
-function ExpenseAddNewItem(props) {
+function ExpenseAddNewItem({ dispatch }) {
 	const [openForm, setOpenForm] = useState(false);
-	const [inputs, setInputs] = useState({ description: "", amount: "" });
+	const [inputs, setInputs] = useState();
 
 	function handleSubmit(event) {
 		event.preventDefault();
 		console.log(inputs);
+		dispatch(addExpense(inputs));
 	}
 
 	function handleInputChange(event) {
@@ -30,7 +32,6 @@ function ExpenseAddNewItem(props) {
 							type="text"
 							placeholder="Description"
 							name="description"
-							value={inputs.description}
 							onChange={handleInputChange}
 						/>
 
@@ -39,7 +40,6 @@ function ExpenseAddNewItem(props) {
 							type="number"
 							placeholder="Amount"
 							name="amount"
-							value={inputs.amount}
 							onChange={handleInputChange}
 						/>
 
