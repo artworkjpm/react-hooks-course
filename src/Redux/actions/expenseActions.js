@@ -1,7 +1,28 @@
+import axios from "axios";
 import { v4 as uuid } from "uuid";
 
+export const fetchPost = (url, dispatch, setError) => {
+	return () => {
+		axios
+			.get(url)
+			.then((res) => {
+				const item = res.data;
+				return dispatch(
+					addExpense({
+						description: item.title,
+						amount: 101,
+						id: item.id,
+					})
+				);
+			})
+			.catch((err) => {
+				setError(err);
+				return alert(err);
+			});
+	};
+};
+
 export const addExpense = ({ description = "", amount = 0, createdAt = 0, id = uuid() } = {}) => {
-	console.log(id);
 	return {
 		type: "ADD_EXPENSE",
 		expenseDetail: {
@@ -12,10 +33,9 @@ export const addExpense = ({ description = "", amount = 0, createdAt = 0, id = u
 		},
 	};
 };
-//REMOVE_EXPENSE
 
+//REMOVE_EXPENSE
 export const removeExpense = (id) => {
-	console.log(id);
 	return {
 		type: "REMOVE_EXPENSE",
 		id,
