@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { addExpense } from "../Redux/actions/expenseActions";
 
 function useFetchExpense(url, dispatch) {
-	const [data, setData] = useState();
 	const [loading, setLoading] = useState(false);
 	const [error, setError] = useState();
 	useEffect(() => {
@@ -36,7 +35,7 @@ function useFetchExpense(url, dispatch) {
 		}, 2000);
 	}, [url, dispatch]);
 
-	return { data, loading, error };
+	return { loading, error };
 }
 
 export default useFetchExpense;
