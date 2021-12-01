@@ -9,7 +9,11 @@ const dummyExpenses = [
 export const expenseReducer = (state = dummyExpenses, action) => {
 	switch (action.type) {
 		case "ADD_EXPENSE":
-			return [...state, action.expenseDetail];
+			if (state.some((item) => item.id === action.expenseDetail.id)) {
+				return state;
+			} else {
+				return [...state, action.expenseDetail];
+			}
 
 		case "REMOVE_EXPENSE":
 			return state.filter(({ id }) => id !== action.id);

@@ -21,7 +21,7 @@ function ExpenseAddNewItem({ dispatch }) {
 				onClick={() => setOpenForm((prev) => !prev)}
 				className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
 			>
-				Add New Expense
+				{!openForm ? "Add New Expense" : "Close Form"}
 			</button>
 
 			{openForm && (
