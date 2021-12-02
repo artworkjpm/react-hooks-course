@@ -12,6 +12,7 @@ export const fetchPost = (url, dispatch, setError) => {
 						description: item.title,
 						amount: 101,
 						id: item.id,
+						email: "jsonplaceholder@gmail.com",
 					})
 				);
 			})
@@ -22,7 +23,7 @@ export const fetchPost = (url, dispatch, setError) => {
 	};
 };
 
-export const addExpense = ({ description = "", amount = 0, createdAt = 0, id = uuid() } = {}) => {
+export const addExpense = ({ description = "", amount = 0, createdAt = 0, id = uuid(), email = "" } = {}) => {
 	return {
 		type: "ADD_EXPENSE",
 		expenseDetail: {
@@ -30,6 +31,7 @@ export const addExpense = ({ description = "", amount = 0, createdAt = 0, id = u
 			description,
 			amount,
 			createdAt,
+			email,
 		},
 	};
 };

@@ -3,14 +3,14 @@ import { removeExpense } from "../../Redux/actions/expenseActions";
 import ExpenseEditItem from "./ExpenseEditItem";
 
 function ExpenseListItem(props) {
-	const { description, amount, index, dispatch, id } = props;
+	const { description, amount, index, dispatch, id, email } = props;
 	const [open, setOpen] = useState(false);
 
 	return (
 		<li className="border-b-2 py-2">
 			{index + 1}
 			{") "}
-			{description} | {amount} Euros
+			{description} | {amount} Euros | {email}
 			<button
 				className="ml-2 bg-red-500 hover:bg-red-700 text-white font-bold px-1 rounded focus:outline-none focus:shadow-outline py-2"
 				onClick={() => dispatch(removeExpense(id))}
