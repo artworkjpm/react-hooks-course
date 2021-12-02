@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-
+//https://www.youtube.com/watch?v=SXIfnNvYrZE
+//https://github.com/mattupham/React-Custom-Hooks-Form-Validation
 function useExpenseForm(submit, expenseValidations, { description, amount, email }) {
 	const [inputs, setInputs] = useState({ description, amount, email });
 	const [errors, setErrors] = useState({ description: "", amount: "", email: "" });
