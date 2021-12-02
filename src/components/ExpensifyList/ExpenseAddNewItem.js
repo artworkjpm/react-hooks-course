@@ -12,7 +12,7 @@ function ExpenseAddNewItem({ dispatch }) {
 	}
 
 	function handleInputChange(event) {
-		setInputs((inputs) => ({ ...inputs, [event.target.name]: event.target.value }));
+		setInputs((prevState) => ({ ...prevState, [event.target.name]: event.target.value }));
 	}
 
 	return (

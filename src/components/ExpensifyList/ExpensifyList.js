@@ -24,7 +24,7 @@ function ExpensifyList({ dispatch, expenses }) {
 			{!loading && (
 				<ul className="my-4">
 					{expenses.map((items, i) => {
-						return <ExpenseListItem {...items} key={items.id} items={i} dispatch={dispatch} />;
+						return <ExpenseListItem {...items} key={items.id} index={i} dispatch={dispatch} />;
 					})}
 				</ul>
 			)}
