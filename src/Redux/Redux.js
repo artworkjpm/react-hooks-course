@@ -1,5 +1,5 @@
 import { createStore } from "redux";
-
+//https://cognizant.udemy.com/course/react-2nd-edition/learn/lecture/7900014#overview
 let result = [];
 const initialState = { count: 0 };
 

@@ -1,16 +1,18 @@
 import React from "react";
-import { connect } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import useFetchExpense from "../../hooks/useFetchExpense";
 import { filterExpenses } from "../../Redux/selectors/expenseSelector";
 import ExpenseAddNewItem from "./ExpenseAddNewItem";
 import ExpenseFilter from "./ExpenseFilter";
 import ExpenseListItem from "./ExpenseListItem";
 
-function ExpensifyList({ dispatch, expenses }) {
+function ExpensifyList() {
+	const expenses = useSelector((state) => filterExpenses(state.expenses, state.filters));
+	const dispatch = useDispatch();
 	const { loading } = useFetchExpense("https://jsonplaceholder.typicode.com/posts/1", dispatch);
 
 	return (
-		<div className="mt-4 grid place-items-center">
+		<div className="px-4 mt-4 grid place-items-center">
 			<h1>Expensify Redux List</h1>
 			<ExpenseFilter />
 			<ExpenseAddNewItem dispatch={dispatch} />
@@ -32,10 +34,12 @@ function ExpensifyList({ dispatch, expenses }) {
 	);
 }
 
-const mapStateToProps = (state) => {
+export default ExpensifyList;
+
+/* const mapStateToProps = (state) => {
 	return {
 		expenses: filterExpenses(state.expenses, state.filters),
 	};
 };
 
-export default connect(mapStateToProps)(ExpensifyList);
+export default connect(mapStateToProps)(ExpensifyList); */
