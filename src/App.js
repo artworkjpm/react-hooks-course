@@ -9,6 +9,7 @@ import UseEffectPage from "./pages/BestPractices/UseEffect";
 import CrudApp from "./pages/CrudApp";
 import { HOC } from "./pages/HOC";
 import NewsPage from "./pages/NewsPage/NewsPage";
+import ReduxToolkit from "./pages/ReduxToolkit/ReduxToolkit";
 import { expenseStore } from "./Redux/store/expenseStore";
 
 const ReduxExpensify = lazy(() => import("./Redux/ReduxExpensify"));
@@ -31,6 +32,7 @@ export default function App() {
 						<Route exact path="/best-practices/separate-logic-from-ui-logic" element={<Separation />} />
 						<Route exact path="/best-practices/lazy-load-components" element={<LazyLoading />} />
 						<Route exact path="/best-practices/use-effect-hook" element={<UseEffectPage />} />
+						<Route exact path="/redux-toolkit" element={<ReduxToolkit />} />
 						<Route exact path="/" element={<Navigate to="/items" />} />
 					</Routes>
 				</Suspense>
