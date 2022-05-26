@@ -1,18 +1,22 @@
-import { createStore, combineReducers, applyMiddleware } from "redux";
+import { configureStore } from "@reduxjs/toolkit";
+import { applyMiddleware } from "redux";
+import { composeWithDevTools } from "redux-devtools-extension";
 import thunkMiddleware from "redux-thunk";
+import { counterReducer } from "../../pages/ReduxToolkit/counterSlice";
 import { filtersReducer } from "../reducers/expenseFilters";
 import { expenseReducer } from "../reducers/expenseReducer";
-import { composeWithDevTools } from "redux-devtools-extension";
 
 const composedEnhancer = composeWithDevTools(applyMiddleware(thunkMiddleware));
 
-export const expenseStore = () => {
-	const store = createStore(
-		combineReducers({
+export const store = () => {
+	const store = configureStore({
+		reducer: {
 			expenses: expenseReducer,
 			filters: filtersReducer,
-		}),
-		composedEnhancer
-	);
+			counter: counterReducer,
+		},
+		composedEnhancer,
+	});
+
 	return store;
 };

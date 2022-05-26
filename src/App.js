@@ -10,15 +10,15 @@ import CrudApp from "./pages/CrudApp";
 import { HOC } from "./pages/HOC";
 import NewsPage from "./pages/NewsPage/NewsPage";
 import ReduxToolkit from "./pages/ReduxToolkit/ReduxToolkit";
-import { expenseStore } from "./Redux/store/expenseStore";
+import { store } from "./Redux/store/expenseStore";
 
 const ReduxExpensify = lazy(() => import("./Redux/ReduxExpensify"));
 const Redux = lazy(() => import("./Redux/Redux"));
-const storeExpense = expenseStore();
+const expenseStore = store();
 
 export default function App() {
 	return (
-		<Provider store={storeExpense}>
+		<Provider store={expenseStore}>
 			<BrowserRouter>
 				<Suspense fallback={<div>Loading...</div>}>
 					<TopNavBar />
